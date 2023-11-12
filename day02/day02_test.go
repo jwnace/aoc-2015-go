@@ -22,7 +22,7 @@ func TestPart1Example(t *testing.T) {
 }
 
 func TestPart1Solution(t *testing.T) {
-	expected := 0
+	expected := 1586300
 	actual := Part1()
 
 	if actual != expected {
@@ -31,7 +31,7 @@ func TestPart1Solution(t *testing.T) {
 }
 
 func TestPart2Solution(t *testing.T) {
-	expected := 0
+	expected := 3737498
 	actual := Part2()
 
 	if actual != expected {
