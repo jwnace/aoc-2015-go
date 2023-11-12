@@ -1,30 +1,14 @@
 package day01
 
-import (
-	"os"
-	"path"
-	"runtime"
-)
-
-func loadInput() string {
-	_, file, _, _ := runtime.Caller(0)
-	dir := path.Dir(file)
-	input, err := os.ReadFile(dir + "/input.txt")
-
-	if err != nil {
-		return ""
-	}
-
-	return string(input)
-}
+import "joenace.com/aoc-2015-go/helpers"
 
 func Part1() int {
-	input := loadInput()
+	input := helpers.ReadInput()
 	return Solve1(input)
 }
 
 func Part2() int {
-	input := loadInput()
+	input := helpers.ReadInput()
 	return Solve2(input)
 }
 
