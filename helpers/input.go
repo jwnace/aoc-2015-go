@@ -9,7 +9,7 @@ import (
 func ReadInput() string {
 	_, file, _, _ := runtime.Caller(1)
 	dir := path.Dir(file)
-	input, err := os.ReadFile(dir + "/helpers.txt")
+	input, err := os.ReadFile(dir + "/input.txt")
 
 	if err != nil {
 		return ""
