@@ -2,7 +2,6 @@ package day02
 
 import (
 	"joenace.com/aoc-2015-go/helpers"
-	"strconv"
 	"strings"
 )
 
@@ -32,25 +31,11 @@ func solve(input string, calculate func(int, int, int) int) int {
 	sum := 0
 
 	for _, line := range strings.Split(strings.TrimSpace(input), "\n") {
-		parts := strings.Split(line, "x")
+		sides := strings.Split(line, "x")
 
-		l, err := strconv.Atoi(parts[0])
-
-		if err != nil {
-			panic(err)
-		}
-
-		w, err := strconv.Atoi(parts[1])
-
-		if err != nil {
-			panic(err)
-		}
-
-		h, err := strconv.Atoi(parts[2])
-
-		if err != nil {
-			panic(err)
-		}
+		l := helpers.ToInt(sides[0])
+		w := helpers.ToInt(sides[1])
+		h := helpers.ToInt(sides[2])
 
 		sum += calculate(l, w, h)
 	}
