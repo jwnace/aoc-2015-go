@@ -20,7 +20,7 @@ func TestPart1Example(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
-			actual := Solve1(test.input)
+			actual := solve1(test.input)
 
 			if actual != test.expected {
 				t.Errorf("Part1(%s) = %d, expected %d", test.input, actual, test.expected)

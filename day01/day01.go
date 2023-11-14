@@ -2,17 +2,21 @@ package day01
 
 import "joenace.com/aoc-2015-go/helpers"
 
+var inputFile string
+
+func init() {
+	inputFile = helpers.ReadInput()
+}
+
 func Part1() int {
-	input := helpers.ReadInput()
-	return Solve1(input)
+	return solve1(inputFile)
 }
 
 func Part2() int {
-	input := helpers.ReadInput()
-	return Solve2(input)
+	return solve2(inputFile)
 }
 
-func Solve1(input string) int {
+func solve1(input string) int {
 	sum := 0
 
 	for _, value := range input {
@@ -26,7 +30,7 @@ func Solve1(input string) int {
 	return sum
 }
 
-func Solve2(input string) int {
+func solve2(input string) int {
 	sum := 0
 
 	for i, value := range input {
