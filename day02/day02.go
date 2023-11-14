@@ -21,36 +21,14 @@ func Part2() int {
 }
 
 func solve1(input string) int {
-	sum := 0
-
-	for _, line := range strings.Split(strings.TrimSpace(input), "\n") {
-		parts := strings.Split(line, "x")
-
-		l, err := strconv.Atoi(parts[0])
-
-		if err != nil {
-			panic(err)
-		}
-
-		w, err := strconv.Atoi(parts[1])
-
-		if err != nil {
-			panic(err)
-		}
-
-		h, err := strconv.Atoi(parts[2])
-
-		if err != nil {
-			panic(err)
-		}
-
-		sum += getWrappingPaperRequired(l, w, h)
-	}
-
-	return sum
+	return solve(input, getWrappingPaperRequired)
 }
 
 func solve2(input string) int {
+	return solve(input, getRibbonRequired)
+}
+
+func solve(input string, calculate func(int, int, int) int) int {
 	sum := 0
 
 	for _, line := range strings.Split(strings.TrimSpace(input), "\n") {
@@ -74,7 +52,7 @@ func solve2(input string) int {
 			panic(err)
 		}
 
-		sum += getRibbonRequired(l, w, h)
+		sum += calculate(l, w, h)
 	}
 
 	return sum
