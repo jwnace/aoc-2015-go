@@ -2,75 +2,42 @@ package day02
 
 import (
 	"joenace.com/aoc-2015-go/helpers"
-	"strconv"
 	"strings"
 )
 
+var inputFile string
+
+func init() {
+	inputFile = helpers.ReadInput()
+}
+
 func Part1() int {
-	input := helpers.ReadInput()
-	return Solve1(input)
+	return solve1(inputFile)
 }
 
 func Part2() int {
-	input := helpers.ReadInput()
-	return Solve2(input)
+	return solve2(inputFile)
 }
 
-func Solve1(input string) int {
+func solve1(input string) int {
+	return solve(input, getWrappingPaperRequired)
+}
+
+func solve2(input string) int {
+	return solve(input, getRibbonRequired)
+}
+
+func solve(input string, calculate func(int, int, int) int) int {
 	sum := 0
 
 	for _, line := range strings.Split(strings.TrimSpace(input), "\n") {
-		parts := strings.Split(line, "x")
+		sides := strings.Split(line, "x")
 
-		l, err := strconv.Atoi(parts[0])
+		l := helpers.ToInt(sides[0])
+		w := helpers.ToInt(sides[1])
+		h := helpers.ToInt(sides[2])
 
-		if err != nil {
-			panic(err)
-		}
-
-		w, err := strconv.Atoi(parts[1])
-
-		if err != nil {
-			panic(err)
-		}
-
-		h, err := strconv.Atoi(parts[2])
-
-		if err != nil {
-			panic(err)
-		}
-
-		sum += getWrappingPaperRequired(l, w, h)
-	}
-
-	return sum
-}
-
-func Solve2(input string) int {
-	sum := 0
-
-	for _, line := range strings.Split(strings.TrimSpace(input), "\n") {
-		parts := strings.Split(line, "x")
-
-		l, err := strconv.Atoi(parts[0])
-
-		if err != nil {
-			panic(err)
-		}
-
-		w, err := strconv.Atoi(parts[1])
-
-		if err != nil {
-			panic(err)
-		}
-
-		h, err := strconv.Atoi(parts[2])
-
-		if err != nil {
-			panic(err)
-		}
-
-		sum += getRibbonRequired(l, w, h)
+		sum += calculate(l, w, h)
 	}
 
 	return sum

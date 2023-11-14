@@ -4,6 +4,7 @@ import (
 	"os"
 	"path"
 	"runtime"
+	"strconv"
 )
 
 func ReadInput() string {
@@ -16,4 +17,14 @@ func ReadInput() string {
 	}
 
 	return string(input)
+}
+
+func ToInt(value string) int {
+	result, err := strconv.Atoi(value)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return result
 }
