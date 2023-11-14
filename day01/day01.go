@@ -2,18 +2,18 @@ package day01
 
 import "joenace.com/aoc-2015-go/helpers"
 
-var input string
+var inputFile string
 
 func init() {
-	input = helpers.ReadInput()
+	inputFile = helpers.ReadInput()
 }
 
 func Part1() int {
-	return solve1(input)
+	return solve1(inputFile)
 }
 
 func Part2() int {
-	return solve2(input)
+	return solve2(inputFile)
 }
 
 func solve1(input string) int {
